@@ -48,7 +48,7 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
           backgroundColor: UnikaColors.error,
           behavior: SnackBarBehavior.floating,
         ));
-      } else if (state.value != null && !state.isLoading) {
+      } else if (!state.hasError && !state.isLoading) {
         // Successful registration, but Supabase might require email confirmation.
         // The router will automatically redirect if a session is created.
         ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
